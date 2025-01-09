@@ -9,9 +9,16 @@ app.set("view engine", "ejs");
 const server = http.createServer(app);
 const io = socketIO(server);
 
+// io.on("connection", (socket)=>{
+//   socket.on("abcd",()=>{
+//     io.emit("defg")
+//   })
+
+// })
+
 io.on("connection", (socket)=>{
-  socket.on("abcd",()=>{
-    io.emit("defg")
+  socket.on("typing",()=>{
+    socket.broadcast.emit("typing")
   })
 
 })
