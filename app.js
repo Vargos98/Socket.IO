@@ -9,7 +9,7 @@ app.set("view engine", "ejs"); // Set EJS as the template engine for rendering v
 const server = http.createServer(app); // Create an HTTP server using the Express app.
 const io = socketIO(server); // Attach the Socket.IO server to the HTTP server.
 
-io.on("connection", () => { // Listen for a new client connection event in Socket.IO.
+io.on("connection", (socket) => { // Listen for a new client connection event in Socket.IO.
   console.log("connected"); // Log a message when a client successfully connects.
 });
 
