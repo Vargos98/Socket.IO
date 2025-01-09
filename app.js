@@ -10,10 +10,14 @@ const server = http.createServer(app);
 const io = socketIO(server);
 
 io.on("connection", (socket)=>{
-  socket.on("abcd",(data)=>{
-    console.log("hey",data)
+  socket.on("abcd",()=>{
+    io.emit("defg")
   })
+
 })
+
+// io.emit() : method is used to send data to everyone in the socket/peoples.
+//socket.emit() : method is used to send data to a single socket/person
 
 app.get('/', (req, res) => {
   res.render('index');
